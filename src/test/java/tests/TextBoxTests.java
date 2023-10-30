@@ -10,15 +10,13 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.pageLoadStrategy;
 import static com.codeborne.selenide.Configuration.holdBrowserOpen;
 import static com.codeborne.selenide.Configuration.timeout;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.closeWindow;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
     @BeforeAll
     static void beforeAll() {
         browserSize = "1920x1080";
-        baseUrl = "https://demoqa.com/text-box";
+        baseUrl = "https://demoqa.com";
         pageLoadStrategy = "eager";
         holdBrowserOpen = true;
         timeout = 5000;
@@ -31,7 +29,9 @@ public class TextBoxTests {
 
     @Test
     void fillFormTest() {
-        open(baseUrl);
+        open(baseUrl.concat("/text-box"));
+        executeJavaScript("$('#fixedban').remove()");
+
         $("#userName").setValue("Alex");
         $("#userEmail").setValue("aleks@gmail.com");
         $("#currentAddress").setValue("Some street 1");

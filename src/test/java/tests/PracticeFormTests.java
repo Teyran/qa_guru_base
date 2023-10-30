@@ -15,7 +15,6 @@ public class PracticeFormTests {
         browserSize = "1920x1080";
         baseUrl = "https://demoqa.com";
         pageLoadStrategy = "eager";
-        timeout = 10000;
     }
 
     @Test
