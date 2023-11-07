@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SelenideRepositorySearch {
+public class SelenideRepositorySearchTests {
     @BeforeAll
     static void beforeAll() {
         browserSize = "1920x1080";
