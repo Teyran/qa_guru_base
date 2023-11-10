@@ -8,6 +8,7 @@ import org.openqa.selenium.Point;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Configuration.*;
+import static com.codeborne.selenide.DragAndDropOptions.to;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -57,6 +58,19 @@ public class DragAndDropTests {
                 .moveByOffset(deltaX, deltaY)
                 .release()
                 .perform();
+
+        $$("div[draggable]").shouldHave(texts("B", "A"));
+    }
+
+
+    @Test
+    void testDragAndDropUsingDragAndDropMethod() {
+
+        open(baseUrl);
+        $(byId("content")).should(appear);
+        $$("div[draggable]").shouldHave(texts("A", "B"));
+
+        $("#column-a").dragAndDrop(to("#column-b"));
 
         $$("div[draggable]").shouldHave(texts("B", "A"));
     }
