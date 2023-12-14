@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
@@ -23,13 +22,9 @@ public class RegistrationPage {
             userNumberInput = $("#userNumber"),
             dateOfBirthInput = $("#dateOfBirthInput"),
             subjectInput = $("#subjectsInput"),
-            hobbiesLabel = $x("//div[@id='hobbiesWrapper']//label"),
-            userForm = $("#userForm.was-validated"),
-            tableResponsive = $(".table-responsive"),
             inputState = $("#state"),
             inputCity = $("#city"),
             buttonSubmit = $("#submit"),
-            inputCalendar = $("#dateOfBirthInput"),
             inputCurrentAddress = $("#currentAddress");
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -73,11 +68,6 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkResult(String key, String value) {
-
-        return this;
-    }
-
     public RegistrationPage setSubject(String value) {
         subjectInput.val(value).pressEnter();
         return this;
@@ -96,9 +86,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage fileUpLoad() {
-        File file = new File("src/test/resources/picture.png");
-        $("#uploadPicture").uploadFile(file);
+    public RegistrationPage fileUpLoad(String picture) {
+        $("#uploadPicture").uploadFromClasspath(picture);
         return this;
     }
 

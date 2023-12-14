@@ -22,7 +22,7 @@ public class PracticeRegistrationFormTests extends TestBase {
                 .setDateOfBirth("May", "11", "1993" )
                 .setSubject("Physics")
                 .setHobbies("Sports", "Reading")
-                .fileUpLoad()
+                .fileUpLoad("picture.png")
                 .enterCurrentAddress("Some address")
                 .enterState("Haryana")
                 .enterCity("Karnal")
@@ -39,8 +39,10 @@ public class PracticeRegistrationFormTests extends TestBase {
                 .checkResult("Address", "Some address")
                 .checkResult("State and City", "Haryana Karnal");
     }
+
     @Test
-    void fillFormWithRequiredFieldsTestf() {
+    void fillFormWithRequiredFieldsTest() {
+
         registrationPage.openPage()
                 .setFirstName("Hello")
                 .setLastName("World")
@@ -56,6 +58,7 @@ public class PracticeRegistrationFormTests extends TestBase {
 
     @Test
     void invalidPhoneNumberTest() {
+
         registrationPage.openPage()
                 .setFirstName("Hello")
                 .setLastName("World")
