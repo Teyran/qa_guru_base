@@ -1,5 +1,6 @@
 package tests;
 
+import data.TestData;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultComponent;
@@ -9,62 +10,67 @@ public class PracticeRegistrationFormTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     ResultComponent resultComponent = new ResultComponent();
 
+    TestData data = new TestData();
+
     @Test
     void fillFormTest() {
 
         registrationPage
                 .openPage()
-                .setFirstName("Teyran")
-                .setLastName("Atamov")
-                .setEmailInput("teyranAtamov@mymail.com")
-                .setGenderWrapper("Male")
-                .setUserNumber("1234567890")
-                .setDateOfBirth("May", "11", "1993" )
-                .setSubject("Physics")
-                .setHobbies("Sports", "Reading")
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setEmailInput(data.email)
+                .setGenderWrapper(data.gender)
+                .setUserNumber(data.phoneNumber)
+                .setDateOfBirth(data.month, data.dayOfBirth, data.yearBirth)
+                .setSubject(data.subjects)
+                .setHobbies(data.hobbies)
                 .fileUpLoad("picture.png")
-                .enterCurrentAddress("Some address")
-                .enterState("Haryana")
-                .enterCity("Karnal")
+                .enterCurrentAddress(data.currentAddress)
+                .enterState(data.state)
+                .enterCity(data.city)
                 .sendForm();
 
-        resultComponent.checkResult("Student Name", "Teyran Atamov")
-                .checkResult("Student Email", "teyranAtamov@mymail.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "11 May,1993")
-                .checkResult("Subjects", "Physics")
-                .checkResult("Hobbies", "Sports, Reading")
+        resultComponent
+                .checkResult("Student Name", data.firstName.concat(" " + data.lastName))
+                .checkResult("Student Email", data.email)
+                .checkResult("Gender", data.gender)
+                .checkResult("Mobile", data.phoneNumber)
+                .checkResult("Date of Birth", data.dayOfBirth + " " + data.month + "," + data.yearBirth)
+                .checkResult("Subjects", data.subjects)
+                .checkResult("Hobbies", data.hobbies)
                 .checkResult("Picture", "picture.png")
-                .checkResult("Address", "Some address")
-                .checkResult("State and City", "Haryana Karnal");
+                .checkResult("Address", data.currentAddress)
+                .checkResult("State and City", data.city);
     }
 
     @Test
     void fillFormWithRequiredFieldsTest() {
 
         registrationPage.openPage()
-                .setFirstName("Hello")
-                .setLastName("World")
-                .setUserNumber("0123456789")
-                .setGenderWrapper("Male")
-                .setDateOfBirth("December","15","1992")
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setUserNumber(data.phoneNumber)
+                .setGenderWrapper(data.gender)
+                .setDateOfBirth(data.month, data.dayOfBirth, data.yearBirth)
                 .sendForm();
-        resultComponent.checkResult("Student Name", "Hello World")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "0123456789")
-                .checkResult("Date of Birth", "15 December,1992");
+
+        resultComponent
+                .checkResult("Student Name", data.firstName.concat(" " + data.lastName))
+                .checkResult("Gender", data.gender)
+                .checkResult("Mobile", data.phoneNumber)
+                .checkResult("Date of Birth", data.dayOfBirth + " " + data.month + "," + data.yearBirth);
     }
 
     @Test
     void invalidPhoneNumberTest() {
 
         registrationPage.openPage()
-                .setFirstName("Hello")
-                .setLastName("World")
-                .setUserNumber("012345")
-                .setGenderWrapper("Male")
-                .setDateOfBirth("December","15","1992")
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setUserNumber(data.wrongPhoneNumber)
+                .setGenderWrapper(data.gender)
+                .setDateOfBirth(data.month, data.dayOfBirth, data.yearBirth)
                 .sendForm()
                 .checkInvalidPhoneNumber();
     }
