@@ -1,19 +1,20 @@
 package tests;
 
 import data.TestData;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.components.ResultComponent;
-
+@DisplayName("Student registration form tests")
 public class PracticeRegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     ResultComponent resultComponent = new ResultComponent();
-
     TestData data = new TestData();
 
     @Test
-    void fillFormTest() {
+    @DisplayName("Happy path test - successfully submitted form with all filled fields")
+    void fillRegistrationFormTest() {
 
         registrationPage
                 .openPage()
@@ -45,7 +46,8 @@ public class PracticeRegistrationFormTests extends TestBase {
     }
 
     @Test
-    void fillFormWithRequiredFieldsTest() {
+    @DisplayName("Test registration form when filled by minimum required fields")
+    void fillRegistrationFormWithRequiredFieldsTest() {
 
         registrationPage.openPage()
                 .setFirstName(data.firstName)
@@ -63,6 +65,7 @@ public class PracticeRegistrationFormTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Test registration form when invalid phone number provided")
     void invalidPhoneNumberTest() {
 
         registrationPage.openPage()
