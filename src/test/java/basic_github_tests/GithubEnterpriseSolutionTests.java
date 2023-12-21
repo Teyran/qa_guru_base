@@ -1,7 +1,8 @@
-package github;
+package basic_github_tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -10,7 +11,7 @@ import static com.codeborne.selenide.Configuration.holdBrowserOpen;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
-
+@DisplayName("Github Enterprise solution tests")
 public class GithubEnterpriseSolutionTests {
 
     @BeforeAll

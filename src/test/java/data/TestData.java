@@ -17,7 +17,8 @@ public class TestData {
             wrongPhoneNumber = faker.phoneNumber().subscriberNumber(4),
             gender = faker.options().option("Male", "Female", "Other"),
             yearBirth = String.valueOf(faker.number().numberBetween(1960, 1999)),
-            month = faker.options().option("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"),
+            month = faker.options().option("January", "February", "March", "April", "May", "June", "July",
+                    "August", "September", "October", "November", "December"),
             dayOfBirth = String.format("%02d", faker.number().numberBetween(1, 28)),
             subjects = faker.options().option("Arts", "Maths", "Hindi"),
             hobbies = faker.options().option("Sports", "Reading", "Music"),
@@ -52,28 +53,13 @@ public class TestData {
 
         abstract String setCity();
 
-        private String state;
+        private final String state;
 
 
         State(String state) {
             this.state = state;
         }
 
-        Faker faker = new Faker(new Locale("EN"));
+        final Faker faker = new Faker(new Locale("EN"));
     }
-
-
-//
-//    public static String setRandomCity(String state) {
-//        Faker faker = new Faker();
-//       return switch (state) {
-//            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
-//            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
-//            case "Haryana" -> faker.options().option("Karnal", "Panipat");
-//            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
-//             default -> throw new IllegalArgumentException("Invalid state: " + state);
-//        };
-//    }
-
-
 }

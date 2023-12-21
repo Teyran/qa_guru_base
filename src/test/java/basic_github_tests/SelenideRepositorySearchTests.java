@@ -1,12 +1,14 @@
-package github;
+package basic_github_tests;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
 
+@DisplayName("Search Selenide repository in Github")
 public class SelenideRepositorySearchTests {
     @BeforeAll
     static void beforeAll() {

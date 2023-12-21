@@ -1,4 +1,4 @@
-package github;
+package basic_github_tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
+@DisplayName("Tests for Selenide repository in github")
 public class SelenideOnGithubTests {
 
     @BeforeAll
@@ -70,7 +71,7 @@ public class SelenideOnGithubTests {
         open("/selenide/selenide");
         $("#wiki-tab").click();
         $$(".markdown-body a").findBy(text("Soft Assertions")).click();
-        $$("h4 a").findBy(partialText("using JUnit5")).shouldBe(visible);
+        $$("h4").findBy(partialText("Using JUnit5")).shouldBe(visible);
         $$("pre").findBy(text(jUnit5Extend)).shouldBe(visible);
         $$("pre").findBy(text(jUnit5ExtendInside)).shouldBe(visible);
     }
