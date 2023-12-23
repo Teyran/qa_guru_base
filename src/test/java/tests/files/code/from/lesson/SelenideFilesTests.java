@@ -1,4 +1,4 @@
-package tests.files.code_from_lesson;
+package tests.files.code.from.lesson;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

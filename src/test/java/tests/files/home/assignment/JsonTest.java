@@ -1,4 +1,4 @@
-package tests.files.home_assignment;
+package tests.files.home.assignment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.JsonData;

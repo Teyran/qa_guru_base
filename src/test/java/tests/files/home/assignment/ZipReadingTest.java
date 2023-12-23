@@ -1,4 +1,4 @@
-package tests.files.home_assignment;
+package tests.files.home.assignment;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
