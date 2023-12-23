@@ -1,4 +1,4 @@
-package basic_github_tests;
+package tests.simple;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,7 +28,7 @@ public class SelenideOnGithubTests {
 
     @Test
     void testAndreiSolntsevIsTheFirstContributor() {
-        open("/selenide/selenide");
+        open("/tests/selenide/selenide");
         $("div.Layout-sidebar").$(byText("Contributors"))
                 //.closest("BorderGrid-cell").$$("ul li").first().hover();
                 .closest("h2").sibling(0).$$("li").first().hover();
@@ -68,7 +68,7 @@ public class SelenideOnGithubTests {
                   }
                 }
                 """;
-        open("/selenide/selenide");
+        open("/tests/selenide/selenide");
         $("#wiki-tab").click();
         $$(".markdown-body a").findBy(text("Soft Assertions")).click();
         $$("h4").findBy(partialText("Using JUnit5")).shouldBe(visible);

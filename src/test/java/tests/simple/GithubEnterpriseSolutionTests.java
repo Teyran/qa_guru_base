@@ -1,4 +1,4 @@
-package basic_github_tests;
+package tests.simple;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

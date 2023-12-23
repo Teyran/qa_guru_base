@@ -1,4 +1,4 @@
-package tests;
+package tests.page_object;
 
 import org.junit.jupiter.api.BeforeAll;
 

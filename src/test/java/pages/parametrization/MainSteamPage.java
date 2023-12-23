@@ -1,4 +1,4 @@
-package pages.steam;
+package pages.parametrization;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;

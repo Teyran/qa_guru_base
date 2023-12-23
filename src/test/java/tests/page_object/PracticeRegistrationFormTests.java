@@ -1,10 +1,11 @@
-package tests;
+package tests.page_object;
 
 import data.TestData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
-import pages.components.ResultComponent;
+import pages.page_object.RegistrationPage;
+import pages.page_object.components.ResultComponent;
+
 @DisplayName("Student registration form tests")
 public class PracticeRegistrationFormTests extends TestBase {
 

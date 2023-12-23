@@ -1,4 +1,4 @@
-package selenide;
+package tests.selenide;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.Cookie;

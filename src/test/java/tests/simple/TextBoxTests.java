@@ -1,4 +1,4 @@
-package tests;
+package tests.simple;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.AfterEach;

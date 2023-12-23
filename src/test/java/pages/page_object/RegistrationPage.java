@@ -1,7 +1,7 @@
-package pages;
+package pages.page_object;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarComponent;
+import pages.page_object.components.CalendarComponent;
 
 
 import static com.codeborne.selenide.Condition.cssValue;

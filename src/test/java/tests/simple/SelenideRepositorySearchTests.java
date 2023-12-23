@@ -1,4 +1,4 @@
-package basic_github_tests;
+package tests.simple;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -23,7 +23,7 @@ public class SelenideRepositorySearchTests {
     void shouldFindSelenideRepositoryAtTheTop() {
         open(baseUrl);
         $("[placeholder='Search or jump to...']").shouldBe(and("clickable", exist, enabled)).click();
-        $("#query-builder-test").setValue("selenide").pressEnter();
+        $("#query-builder-test").setValue("tests/selenide").pressEnter();
         $$("div[data-testid='results-list'] h3 a").first().click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
     }

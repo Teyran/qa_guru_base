@@ -1,4 +1,4 @@
-package selenide;
+package tests.selenide;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
