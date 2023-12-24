@@ -1,9 +1,30 @@
 plugins {
     id 'java-library'
+    id('io.qameta.allure') version '2.11.2'
+}
+
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter {           //responsible for creation 'builds/allure-results' folder
+        aspectjWeaver.set(true) //responsible for @Step annotation
+        frameworks {
+            junit5 { // test framework name declaration
+                adapterVersion.set("2.19.0")  //version of integration the framework with Allure
+            }
+        }
+    }
 }
 
 repositories {
     mavenCentral()
+}
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 dependencies {
@@ -19,6 +40,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.16.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
+    implementation 'io.qameta.allure:allure-selenide:2.25.0'
+
 
 }
 
