@@ -46,6 +46,6 @@ dependencies {
 }
 
 test {
-    systemProperties += System.properties;
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 }
