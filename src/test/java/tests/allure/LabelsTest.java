@@ -1,16 +1,8 @@
 package tests.allure;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.webdriver;
-import static io.qameta.allure.Allure.attachment;
-import static io.qameta.allure.Allure.step;
 
 public class LabelsTest {
 
@@ -36,5 +28,4 @@ public class LabelsTest {
         Allure.label("severity", SeverityLevel.CRITICAL.value());
         Allure.link("Testing", "https://testing.github.com");
     }
-
 }
