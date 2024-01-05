@@ -1,5 +1,6 @@
 gradlew
 gradlew.bat
+.gradle
 # Compiled class file
 *.class
 
