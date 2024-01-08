@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 import pages.page_object.RegistrationPage;
 import pages.page_object.components.ResultComponent;
 
+import static io.qameta.allure.Allure.step;
+
 @DisplayName("Student registration form tests")
-@Tag("demoqa")
 public class PracticeRegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -16,25 +17,28 @@ public class PracticeRegistrationFormTests extends TestBase {
     TestData data = new TestData();
 
     @Test
+    @Tag("demoqa")
     @DisplayName("Happy path test - successfully submitted form with all filled fields")
     void fillRegistrationFormTest() {
+        step("Open form and fill in students data", ()-> {
+            registrationPage
+                    .openPage()
+                    .setFirstName(data.firstName)
+                    .setLastName(data.lastName)
+                    .setEmailInput(data.email)
+                    .setGenderWrapper(data.gender)
+                    .setUserNumber(data.phoneNumber)
+                    .setDateOfBirth(data.month, data.dayOfBirth, data.yearBirth)
+                    .setSubject(data.subjects)
+                    .setHobbies(data.hobbies)
+                    .fileUpLoad("picture.png")
+                    .enterCurrentAddress(data.currentAddress)
+                    .enterState(data.state)
+                    .enterCity(data.city)
+                    .sendForm();
+        });
 
-        registrationPage
-                .openPage()
-                .setFirstName(data.firstName)
-                .setLastName(data.lastName)
-                .setEmailInput(data.email)
-                .setGenderWrapper(data.gender)
-                .setUserNumber(data.phoneNumber)
-                .setDateOfBirth(data.month, data.dayOfBirth, data.yearBirth)
-                .setSubject(data.subjects)
-                .setHobbies(data.hobbies)
-                .fileUpLoad("picture.png")
-                .enterCurrentAddress(data.currentAddress)
-                .enterState(data.state)
-                .enterCity(data.city)
-                .sendForm();
-
+        step("Verify applied data", ()-> {
         resultComponent
                 .checkResult("Student Name", data.firstName.concat(" " + data.lastName))
                 .checkResult("Student Email", data.email)
@@ -46,6 +50,7 @@ public class PracticeRegistrationFormTests extends TestBase {
                 .checkResult("Picture", "picture.png")
                 .checkResult("Address", data.currentAddress)
                 .checkResult("State and City", data.city);
+        });
     }
 
     @Test
