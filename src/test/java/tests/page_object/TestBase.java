@@ -11,5 +11,6 @@ public class TestBase {
         browserSize = "1920x1080";
         baseUrl = "https://demoqa.com";
         pageLoadStrategy = "eager";
+        remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 }
