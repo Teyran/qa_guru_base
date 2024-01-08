@@ -12,7 +12,6 @@ public class NegativeTests {
     void someTest() {
         assertTrue(false);
     }
-
     @Test
     void someTest1() {
         assertTrue(false);
@@ -23,14 +22,6 @@ public class NegativeTests {
     }
     @Test
     void someTest3() {
-        assertTrue(false);
-    }
-    @Test
-    void someTest4() {
-        assertTrue(false);
-    }
-    @Test
-    void someTest5() {
         assertTrue(false);
     }
 }
