@@ -11,11 +11,10 @@ public class ResultComponent {
 
     private SelenideElement resultltModalForm = $("tbody");
 
-    @Step("Check if data is presented accordingly in popup")
+    @Step("Check if row with key {key} and value {value} is presented in popup")
     public ResultComponent checkResult(String key, String value) {
         resultltModalForm.$(byText(key)).parent()
                 .shouldHave(text(value));
-
         return this;
     }
 }
