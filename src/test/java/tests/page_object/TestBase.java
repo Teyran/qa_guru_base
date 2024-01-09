@@ -22,5 +22,7 @@ public class TestBase {
     @AfterEach
     void addAttachments() {
         Attach.takeScreenshot("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
     }
 }
