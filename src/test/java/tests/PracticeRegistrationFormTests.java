@@ -1,14 +1,13 @@
-package tests.page_object;
+package tests;
 
 import data.TestData;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pages.page_object.RegistrationPage;
-import pages.page_object.components.ResultComponent;
+import pages.RegistrationPage;
+import pages.components.ResultComponent;
 
-import static io.qameta.allure.Allure.step;
-
+@Tag("demoqa")
 @DisplayName("Student registration form tests")
 public class PracticeRegistrationFormTests extends TestBase {
 
@@ -17,10 +16,8 @@ public class PracticeRegistrationFormTests extends TestBase {
     TestData data = new TestData();
 
     @Test
-    @Tag("demoqa")
     @DisplayName("Happy path test - successfully submitted form with all filled fields")
     void fillRegistrationFormTest() {
-        step("Open form and fill in students data", ()-> {
             registrationPage
                     .openPage()
                     .setFirstName(data.firstName)
@@ -36,9 +33,7 @@ public class PracticeRegistrationFormTests extends TestBase {
                     .enterState(data.state)
                     .enterCity(data.city)
                     .sendForm();
-        });
 
-        step("Verify applied data", ()-> {
         resultComponent
                 .checkResult("Student Name", data.firstName.concat(" " + data.lastName))
                 .checkResult("Student Email", data.email)
@@ -50,7 +45,6 @@ public class PracticeRegistrationFormTests extends TestBase {
                 .checkResult("Picture", "picture.png")
                 .checkResult("Address", data.currentAddress)
                 .checkResult("State and City", data.city);
-        });
     }
 
     @Test
