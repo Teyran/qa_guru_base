@@ -1,4 +1,4 @@
-package tests.allure;
+package allure;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;

@@ -1,4 +1,4 @@
-package tests.allure;
+package allure;
 
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;
