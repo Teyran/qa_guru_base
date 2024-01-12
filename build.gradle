@@ -48,7 +48,7 @@ test {
 }
 
 tasks.withType(Test) {
-    //systemProperties(System.getProperties())
+    systemProperties(System.getProperties())
 
     testLogging {
         lifecycle {

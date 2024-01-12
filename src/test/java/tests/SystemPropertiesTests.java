@@ -3,6 +3,8 @@ package tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class SystemPropertiesTests {
 
     @Test
@@ -27,9 +29,9 @@ public class SystemPropertiesTests {
 
     @Test
     @Tag("property")
-    void testSystemPropertyProvidingFromJenkins (){
+    void testSystemPropertyProvidingFromJenkins () {
         String browser = System.getProperty("browser", "mozilla");
-
-        System.out.println(browser); //chrome
+        assertEquals(browser, "opera");
+        System.out.println(browser); //opera
     }
 }
