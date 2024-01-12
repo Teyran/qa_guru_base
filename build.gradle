@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.16.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.0'
     implementation 'io.qameta.allure:allure-selenide:2.25.0'
+    implementation 'io.rest-assured:rest-assured:5.4.0'
+
 
 
 }
