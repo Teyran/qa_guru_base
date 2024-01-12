@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.format;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SystemPropertiesTests {
@@ -32,5 +33,13 @@ public class SystemPropertiesTests {
     void testSystemPropertyProvidingFromJenkins () {
         String browser = System.getProperty("browser", "mozilla");
         System.out.println(browser);
+    }
+
+    @Test
+    @Tag("hello")
+    void testSystemProperty1 () {
+        String name = System.getProperty("name", "default student");
+        String message = format("Hello, %s!", name);
+        System.out.println(message);
     }
 }
